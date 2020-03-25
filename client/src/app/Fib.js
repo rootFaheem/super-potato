@@ -1,8 +1,7 @@
 import React, { Component } from "react";
-
 import axios from "axios";
 
-export default class Fib extends Component {
+class Fib extends Component {
   state = {
     seenIndex: [],
     values: {},
@@ -76,3 +75,5 @@ export default class Fib extends Component {
     );
   }
 }
+
+export default Fib;
