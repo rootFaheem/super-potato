@@ -1,0 +1,19 @@
+{
+  "name": "backend",
+  "version": "1.0.0",
+  "description": "Worker",
+  "main": "index.js",
+  "author": "rootFaheem",
+  "license": "MIT",
+  "devDependencies": {
+    "nodemon": "^2.0.2"
+  },
+  "dependencies": {
+    "redis": "^3.0.2"
+  },
+  "scripts": {
+      "start": "node index.js",
+      "dev": "nodemon"
+  }
+
+}

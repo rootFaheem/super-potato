@@ -1,19 +1,21 @@
 {
   "name": "backend",
   "version": "1.0.0",
-  "description": "Worker",
+  "description": "backend workspace",
   "main": "index.js",
   "author": "rootFaheem",
   "license": "MIT",
+  "dependencies": {
+    "cors": "^2.8.5",
+    "express": "^4.17.1",
+    "pg": "^7.18.2",
+    "redis": "^3.0.2"
+  },
   "devDependencies": {
     "nodemon": "^2.0.2"
   },
-  "dependencies": {
-    "redis": "^3.0.2"
-  },
   "scripts": {
-      "start": "node index.js",
-      "dev": "nodemon"
+    "dev": "nodemon",
+    "start": "node index.js"
   }
-
 }

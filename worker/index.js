@@ -1,6 +1,6 @@
 const redis = require("redis");
 
-const { REDIS_HOST, REDIS_PORT } = require("./config/keys");
+const { REDIS_HOST, REDIS_PORT } = require("./keys");
 const redisClient = redis.createClient({
   host: REDIS_HOST,
   port: REDIS_PORT,
