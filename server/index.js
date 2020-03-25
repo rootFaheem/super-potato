@@ -40,8 +40,7 @@ const redisClient = redis.createClient({
   port: REDIS_PORT,
   retry_strategy: () => 1000
 });
-
-const redisPublisher = redisClient.redisClient();
+const redisPublisher = redisClient.duplicate();
 
 // EXPRESS ROUTE HANDLER
 app.get("/api", (req, res) => {
