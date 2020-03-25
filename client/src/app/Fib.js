@@ -27,7 +27,42 @@ export default class Fib extends Component {
       seenIndex: seenIndex.data
     });
   }
+
+  renderSeenIndexes() {
+    return this.state.seenIndexes.map(({ number }) => number).join(", ");
+  }
+
+  renderValues() {
+    const entries = [];
+
+    for (let key in this.state.values) {
+      entries.push(
+        <div key={key}>
+          For index {key}, I calculated {this.state.values[key]}
+        </div>
+      );
+    }
+    return entries;
+  }
+
   render() {
-    return <div></div>;
+    return (
+      <div>
+        <form>
+          <label>Enter your index</label>
+          <input
+            value={this.state.index}
+            onChange={event => this.setState({ index: event.target.value })}
+          ></input>
+          <button></button>
+        </form>
+
+        <h3>Recently seen Indexes</h3>
+        {this.renderSeenIndexes()}
+
+        <h3>Recently seen Indexes</h3>
+        {this.renderValues()}
+      </div>
+    );
   }
 }
