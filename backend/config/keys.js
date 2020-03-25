@@ -1,4 +1,5 @@
 module.exports = {
+  PORT: process.env.REDIS_HOST,
   REDIS_HOST: process.env.REDIS_HOST,
   REDIS_PORT: process.env.REDIS_PORT,
   PG_USER: process.env.PG_USER,
