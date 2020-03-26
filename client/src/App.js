@@ -18,7 +18,7 @@ function App() {
           <Route exact path="/" component={Fib}></Route>
           <Route exact path="/not-found" component={NotFound}></Route>
         </div>
-      </Router>
+      </Router> 
     </div>
   );
 }
