@@ -74,5 +74,8 @@ app.post("/api/values", async (req, res) => {
 });
 
 app.listen(PORT, err => {
+  if (err) {
+    console.log("[Server]::Error:", err);
+  }
   console.log(`Server listening at ${PORT}`);
 });
