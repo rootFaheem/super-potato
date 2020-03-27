@@ -1,7 +1,12 @@
 FROM node:alpine
-WORKDIR "/app"
+
+WORKDIR /app
+
 COPY ./package.json ./
+
 RUN yarn
+
 COPY . .
+
 CMD ["yarn", "run", "dev"]
 

@@ -1,6 +1,6 @@
 import React from "react";
 
-import { BrowserRouter as Router, Link, Route } from "react-router-dom";
+import { BrowserRouter as Router, Link, Route, Switch } from "react-router-dom";
 
 import Fib from "./Fib";
 import NotFound from "./NotFound";
@@ -21,8 +21,10 @@ function App() {
         </header>
 
         <Router>
-          {/* <Route path="/" component={Fib}></Route> */}
-          <Route path="/not-found" component={NotFound}></Route>
+          <Switch>
+            <Route exact path="/" component={Fib}></Route>
+            <Route exact path="/not-found" component={NotFound}></Route>
+          </Switch>
         </Router>
       </div>
     </Router>

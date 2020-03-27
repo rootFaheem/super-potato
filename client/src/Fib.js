@@ -63,14 +63,16 @@ class Fib extends Component {
             value={this.state.index}
             onChange={event => this.setState({ index: event.target.value })}
           ></input>
-          <button></button>
+          <button>Submit</button>
         </form>
 
         <h3>Recently seen Indexes</h3>
-        {this.renderSeenIndexes()}
+        {this.state.seenIndex && this.state.seenIndex[0]
+          ? this.renderSeenIndexes()
+          : null}
 
         <h3>Recently seen Indexes</h3>
-        {this.renderValues()}
+        {this.state.values ? this.renderValues() : null}
       </div>
     );
   }
