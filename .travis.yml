@@ -2,14 +2,21 @@ sudo: required
 services:
   - docker
 
-before_install:
-  - docker built -t rootfaheem/client-test -f ./client/Dockerfile.dev ./client
+# before_install:
+#   - docker built -t rootfaheem/client-test -f ./client/Dockerfile.dev ./client
 
-script:
-  - docker run rootfaheem/client-test yarn test -- --eoverage
+# script:
+#   - docker run rootfaheem/client-test yarn test -- --eoverage
 
 after_success:
   - docker build -t rootfaheem/multi-client ./client
   - docker build -t rootfaheem/multi-server ./server
   - docker build -t rootfaheem/multi-nginx ./nginx
   - docker build -t rootfaheem/multi-worker ./worker
+  # Login to the Docker CLI
+  - echo "$DOCKER_PASSWORD" | docker login -u "$DOCKER_ID" --password-stdin
+  # Take docker images and push those images
+  - docker push rootfaheem/multi-client
+  - docker push rootfaheem/multi-server
+  - docker push rootfaheem/multi-nginx
+  - docker push rootfaheem/multi-worker
