@@ -2,6 +2,10 @@ sudo: required
 services:
   - docker
 
+language: node_js
+node_js:
+  - 12.16.1
+
 before_install:
   - echo "BEFORE INSTALL START"
 
@@ -17,10 +21,21 @@ after_success:
   - docker build -t rootfaheem/multi-nginx ./nginx
   - docker build -t rootfaheem/multi-worker ./worker
   # Login to the Docker CLI
-  #   - echo "$DOCKER_PASSWORD" | docker login -u "$DOCKER_ID" --password-stdin
-  - docker login -u “$DOCKER_ID” -p “$DOCKER_PASSWORD” docker.io
+  - echo "$DOCKER_PASSWORD" | docker login -u "$DOCKER_ID" --password-stdin
   # Take docker images and push those images
   - docker push rootfaheem/multi-client
   - docker push rootfaheem/multi-server
   - docker push rootfaheem/multi-nginx
   - docker push rootfaheem/multi-worker
+
+deploy:
+  provider: elasticbeanstalk
+  region: ap-south-1
+  app: super-potato
+  env: SuperPotato-env
+  bucket_name: elasticbeanstalk-ap-south-1-403740642838
+  bucket_path: super-potato
+  on:
+    branch: master
+  access_key_id: $AWS_ACCESS_KEY
+  secret_access_key: $AWS_SECRET_KEY
