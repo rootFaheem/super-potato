@@ -4,7 +4,20 @@
     {
       "name": "client",
       "image": "rootfaheem/multi-client",
-      "hostname": "client"
+      "hostname": "client",
+      "essential": false
+    },
+    {
+      "name": "server",
+      "image": "rootfaheem/multi-server",
+      "host": "api",
+      "essential": false
+    },
+    {
+      "name": "worker",
+      "image": "rootfaheem/multi-worker",
+      "host": "worker",
+      "essential": false
     }
   ]
 }
