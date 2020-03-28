@@ -10,14 +10,25 @@
     {
       "name": "server",
       "image": "rootfaheem/multi-server",
-      "host": "api",
+      "host": "backend",
       "essential": false
     },
     {
       "name": "worker",
       "image": "rootfaheem/multi-worker",
-      "host": "worker",
       "essential": false
+    },
+    {
+      "name": "nginx",
+      "image": "rootfaheem/multi-nginx",
+      "essential": true,
+      "portMappings": [
+        {
+          "hostPort": 80,
+          "containerPort": 80
+        }
+      ],
+      "links": ["client", "server"]
     }
   ]
 }
