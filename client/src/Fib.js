@@ -3,7 +3,7 @@ import axios from "axios";
 
 class Fib extends Component {
   state = {
-    seenIndex: [],
+    seenIndexes: [],
     values: {},
     index: ""
   };
@@ -13,19 +13,20 @@ class Fib extends Component {
     this.fetchIndexes();
   }
 
-  async fetchValues() {
-    const values = axios.get("/api/values/current");
+  fetchValues = async () => {
+    const values = await axios.get("/api/values/current");
+
     this.setState({
       values: values.data
     });
-  }
+  };
 
-  async fetchIndexes() {
-    const seenIndex = axios.get("/api/values/all");
+  fetchIndexes = async () => {
+    const seenIndex = await axios.get("/api/values/all");
     this.setState({
-      seenIndex: seenIndex.data
+      seenIndexes: seenIndex.data
     });
-  }
+  };
 
   renderSeenIndexes() {
     return this.state.seenIndexes.map(({ number }) => number).join(", ");
@@ -67,11 +68,11 @@ class Fib extends Component {
         </form>
 
         <h3>Recently seen Indexes</h3>
-        {this.state.seenIndex && this.state.seenIndex[0]
+        {this.state.seenIndexes && this.state.seenIndexes[0]
           ? this.renderSeenIndexes()
           : null}
 
-        <h3>Recently seen Indexes</h3>
+        <h3>Recently seen values</h3>
         {this.state.values ? this.renderValues() : null}
       </div>
     );

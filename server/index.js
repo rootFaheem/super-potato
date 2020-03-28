@@ -54,7 +54,7 @@ app.get("/api/values/all", async (req, res) => {
 });
 
 app.get("/api/values/current", async (req, res) => {
-  redisClient.hgetall("values", (err, values) => {
+  redisClient.get("values", (err, values) => {
     res.status(200).send(values);
   });
 });
@@ -66,7 +66,7 @@ app.post("/api/values", async (req, res) => {
     return res.status(422).send("Index too high");
   }
 
-  redisClient.hset("values", index, "Nothing yet!");
+  redisClient.set("values", index);
   redisPublisher.publish("insert", index);
   pgClient.query("INSERT INTO values(number) VALUES($1)", [index]);
 
