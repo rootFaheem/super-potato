@@ -2,10 +2,10 @@ sudo: required
 services:
   - docker
 
-before_install:
-  - docker build -t rootfaheem/client-test -f ./client/Dockerfile.dev ./client
+# before_install:
+#   - docker build -t rootfaheem/client-test -f ./client/Dockerfile.dev ./client
 
-script:
+# script:
 #   - docker run rootfaheem/client-test yarn test -- --eoverage
 
 after_success:
