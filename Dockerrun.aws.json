@@ -1,0 +1,17 @@
+{
+    "AWSEBDockerrunVersion": 2,
+    "containerDefinitions": [
+        {
+            "name": "client",
+            "image": "rootfaheem/multi-client",
+            "hostname": "client",
+            "essential": false
+        },
+        {
+            "name": "server",
+            "image": "rootfaheem/multi-server",
+            "hostname": "api",
+            "essential": false
+        }
+    ]
+}

@@ -8,7 +8,6 @@ node_js:
 
 before_install:
     - echo "BEFORE INSTALL START"
-
 #   - docker build -t rootfaheem/client-test -f ./client/Dockerfile.dev ./client
 
 script:
