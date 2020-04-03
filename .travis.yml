@@ -30,10 +30,10 @@ after_success:
 deploy:
     provider: elasticbeanstalk
     region: ap-south-1
-    app: super-potato
-    env: SuperPotato-env
+    app: multi-docker
+    env: MultiDocker-env
     bucket_name: elasticbeanstalk-ap-south-1-403740642838
-    bucket_path: super-potato
+    bucket_path: docker-multi
     on:
         branch: master
     access_key_id: $AWS_ACCESS_KEY
